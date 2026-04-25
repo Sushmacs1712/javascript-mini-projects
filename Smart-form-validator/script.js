@@ -18,7 +18,9 @@ form.addEventListener("submit", function(e) {
   }
 
   // Email validation
-  if (!emailInput.value.includes("@")) {
+ const emailValue = emailInput.value.trim();
+
+  if (!emailValue.includes("@") || !emailValue.includes(".")) { {
     errors[1].innerText = "Enter valid email";
     isValid = false;
   } else {
@@ -26,7 +28,7 @@ form.addEventListener("submit", function(e) {
   }
 
   // Password validation
-  if (passwordInput.value.length < 6) {
+  if (passwordInput.value.trim().length < 6) { {
     errors[2].innerText = "Min 6 characters required";
     isValid = false;
   } else {
