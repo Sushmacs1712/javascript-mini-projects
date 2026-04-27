@@ -18,9 +18,8 @@ form.addEventListener("submit", function(e) {
   }
 
   // Email validation
- const emailValue = emailInput.value.trim();
-
-  if (!emailValue.includes("@") || !emailValue.includes(".")) { {
+  const emailValue = emailInput.value.trim();
+  if (!emailValue.includes("@") || !emailValue.includes(".")) {
     errors[1].innerText = "Enter valid email";
     isValid = false;
   } else {
@@ -28,7 +27,7 @@ form.addEventListener("submit", function(e) {
   }
 
   // Password validation
-  if (passwordInput.value.trim().length < 6) { {
+  if (passwordInput.value.trim().length < 6) {
     errors[2].innerText = "Min 6 characters required";
     isValid = false;
   } else {
@@ -37,5 +36,16 @@ form.addEventListener("submit", function(e) {
 
   if (isValid) {
     document.getElementById("successMsg").innerText = "Form Submitted Successfully!";
-form.reset();  }
+    form.reset();
+  }
 });
+
+function togglePassword() {
+  const pwd = document.getElementById("password");
+
+  if (pwd.type === "password") {
+    pwd.type = "text";
+  } else {
+    pwd.type = "password";
+  }
+}
