@@ -19,12 +19,23 @@ form.addEventListener("submit", function(e) {
 
   // Email validation
   const emailValue = emailInput.value.trim();
-  if (!emailValue.includes("@") || !emailValue.includes(".")) {
-    errors[1].innerText = "Enter valid email";
-    isValid = false;
-  } else {
-    errors[1].innerText = "";
-  }
+
+// check empty first
+if (emailValue === "") {
+  errors[1].innerText = "Email is required";
+  isValid = false;
+} 
+// better validation using regex
+else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
+  errors[1].innerText = "Enter valid email";
+  isValid = false;
+} 
+else {
+  errors[1].innerText = "";
+}
+if (isValid) {
+  alert("Form submitted successfully!");
+}
 
   // Password validation
   if (passwordInput.value.trim().length < 6) {
