@@ -3,13 +3,36 @@ const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 const errors = document.querySelectorAll(".error");
+const strengthText = document.getElementById("passwordStrength");
+
+
+
+passwordInput.addEventListener("input", function () {
+  const value = passwordInput.value;
+  let score = 0;
+
+  if (value.length >= 8) score++;
+  if (/[A-Z]/.test(value)) score++;
+  if (/[0-9]/.test(value)) score++;
+  if (/[!@#$%^&*]/.test(value)) score++;
+
+  if (score <= 1) {
+    strengthText.innerText = "Weak";
+    strengthText.style.color = "red";
+  } else if (score <= 3) {
+    strengthText.innerText = "Medium";
+    strengthText.style.color = "orange";
+  } else {
+    strengthText.innerText = "Strong";
+    strengthText.style.color = "green";
+  }
+});
 
 form.addEventListener("submit", function(e) {
   e.preventDefault();
-
+ 
   let isValid = true;
 
-  // Name validation
   if (nameInput.value.trim() === "") {
     errors[0].innerText = "Name is required";
     isValid = false;
@@ -17,27 +40,20 @@ form.addEventListener("submit", function(e) {
     errors[0].innerText = "";
   }
 
-  // Email validation
   const emailValue = emailInput.value.trim();
 
-// check empty first
-if (emailValue === "") {
-  errors[1].innerText = "Email is required";
-  isValid = false;
-} 
-// better validation using regex
-else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
-  errors[1].innerText = "Enter valid email";
-  isValid = false;
-} 
-else {
-  errors[1].innerText = "";
-}
-if (isValid) {
-  alert("Form submitted successfully!");
-}
+  if (emailValue === "") {
+    errors[1].innerText = "Email is required";
+    isValid = false;
+  } 
+  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
+    errors[1].innerText = "Enter valid email";
+    isValid = false;
+  } 
+  else {
+    errors[1].innerText = "";
+  }
 
-  // Password validation
   if (passwordInput.value.trim().length < 6) {
     errors[2].innerText = "Min 6 characters required";
     isValid = false;
@@ -46,17 +62,8 @@ if (isValid) {
   }
 
   if (isValid) {
+    alert("Form submitted successfully!");
     document.getElementById("successMsg").innerText = "Form Submitted Successfully!";
     form.reset();
   }
 });
-
-function togglePassword() {
-  const pwd = document.getElementById("password");
-
-  if (pwd.type === "password") {
-    pwd.type = "text";
-  } else {
-    pwd.type = "password";
-  }
-}
