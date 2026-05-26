@@ -1,16 +1,96 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+  <title>Color Changer</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      transition: background 0.5s ease;
+      background: linear-gradient(to right, #dbeafe, #bfdbfe);
+    }
+
+    .container {
+      background-color: white;
+      width: 350px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      background-color: #2563eb;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #1d4ed8;
+      transform: scale(1.05);
+    }
+
+    #colorName {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #111;
+    }
+  </style>
+</head>
+
 <body>
 
-<h2>Color Changer</h2>
+  <div class="container">
 
-<button onclick="changeColor()">Change Color</button>
+    <h2>🎨 Color Changer</h2>
 
-<script>
-function changeColor() {
-  document.body.style.backgroundColor = "lightblue";
-}
-</script>
+    <button onclick="changeColor()">
+      Change Background
+    </button>
+
+    <p id="colorName">Current Color</p>
+
+  </div>
+
+  <script>
+
+    const colors = [
+      "#FFB6C1",
+      "#FFD700",
+      "#90EE90",
+      "#87CEFA",
+      "#DDA0DD",
+      "#FFA07A",
+      "#20B2AA"
+    ];
+
+    function changeColor() {
+
+      let randomColor =
+        colors[Math.floor(Math.random() * colors.length)];
+
+      document.body.style.background = randomColor;
+
+      document.getElementById("colorName").innerText =
+        "Current Color: " + randomColor;
+    }
+
+  </script>
 
 </body>
+
 </html>
