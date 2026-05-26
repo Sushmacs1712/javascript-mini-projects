@@ -1,23 +1,107 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <title>Simple Calculator</title>
+
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 50px;
+  background: linear-gradient(to right, #dbeafe, #bfdbfe);
+}
+
+h2 {
+  color: #333;
+}
+
+input {
+  padding: 10px;
+  margin: 10px;
+  width: 220px;
+  border-radius: 5px;
+  border: 1px solid #999;
+}
+
+button {
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #2563eb;
+  color: white;
+  font-size: 15px;
+}
+
+button:hover {
+  background-color: #1d4ed8;
+}
+
+#resultBox {
+  margin-top: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  border-radius: 10px;
+  background-color: white;
+  display: inline-block;
+  padding: 15px 30px;
+  min-width: 150px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+  </style>
+</head>
+
 <body>
 
-<h2>Simple Calculator</h2>
+  <h2>Simple Calculator</h2>
 
-<input id="num1" placeholder="Enter first number">
-<input id="num2" placeholder="Enter second number">
+  <input type="number" id="num1" placeholder="Enter first number">
+  <br>
 
-<button onclick="add()">Add</button>
+  <input type="number" id="num2" placeholder="Enter second number">
+  <br><br>
 
-<p id="result"></p>
+  <button onclick="calculate('+')">Add</button>
+  <button onclick="calculate('-')">Subtract</button>
+  <button onclick="calculate('*')">Multiply</button>
+  <button onclick="calculate('/')">Divide</button>
 
-<script>
-function add() {
-  let a = Number(document.getElementById("num1").value);
-  let b = Number(document.getElementById("num2").value);
-  document.getElementById("result").innerText = a + b;
-}
-</script>
+  <div id="resultBox">
+    Result: <span id="result">0</span>
+  </div>
+
+  <script>
+    function calculate(operator) {
+
+      let a = Number(document.getElementById("num1").value);
+      let b = Number(document.getElementById("num2").value);
+
+      let result;
+
+      if (operator === '+') {
+        result = a + b;
+      }
+
+      else if (operator === '-') {
+        result = a - b;
+      }
+
+      else if (operator === '*') {
+        result = a * b;
+      }
+
+      else if (operator === '/') {
+        if (b === 0) {
+          result = "Cannot divide by 0";
+        } else {
+          result = a / b;
+        }
+      }
+
+      document.getElementById("result").innerText = result;
+    }
+  </script>
 
 </body>
 </html>
