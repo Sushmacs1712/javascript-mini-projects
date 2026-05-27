@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quote Generator</title>
+
+  <style>
+    body{
+      margin:0;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-family:Arial, sans-serif;
+      background:linear-gradient(135deg,#667eea,#764ba2);
+    }
+
+    .container{
+      background:white;
+      padding:30px;
+      border-radius:15px;
+      width:350px;
+      text-align:center;
+      box-shadow:0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    h2{
+      margin-bottom:20px;
+    }
+
+    #quote{
+      font-size:20px;
+      margin:20px 0;
+      min-height:60px;
+    }
+
+    select, button{
+      padding:10px;
+      margin:10px 5px;
+      border:none;
+      border-radius:8px;
+      font-size:16px;
+    }
+
+    button{
+      background:#667eea;
+      color:white;
+      cursor:pointer;
+    }
+
+    button:hover{
+      background:#5a67d8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h2>Quote Generator</h2>
+
+    <select id="category">
+      <option value="motivation">Motivation</option>
+      <option value="success">Success</option>
+      <option value="coding">Coding</option>
+    </select>
+
+    <br>
+     <button onclick="generateQuote()">New Quote</button>
+
+    <p id="quote">Click the button to generate a quote</p>
+  </div>
+
+  <script>
+
+    const quotes = {
+      motivation: [
+        "Believe in yourself",
+        "Keep going",
+        "You can do it",
+        "You are the Best",
+        "You are Consistant"
+      ],
+
+      success: [
+        "Success is coming",
+        "Stay consistent",
+        "Dream big",
+        "If you can dream it, You can Make it",
+        "Having small Dreams is Crime"
+      ],
+
+      coding: [
+        "Code. Debug. Repeat.",
+        "Practice makes perfect",
+        "Every bug teaches something",
+        "I love Coding",
+        "Coffee + Code = Developer",
+        "Programming is 10% coding and 90% fixing bugs.",
+        "Life is short. Use semicolons wisely."
+      ]
+    };
+
+    function generateQuote(){
+
+      let category =
+      document.getElementById("category").value;
+
+      let selectedQuotes = quotes[category];
+
+      let random =
+      Math.floor(Math.random() * selectedQuotes.length);
+
+      document.getElementById("quote").innerText =
+      selectedQuotes[random];
+    }
+
+  </script>
+
+</body>
+</html>
