@@ -65,5 +65,15 @@ form.addEventListener("submit", function(e) {
     alert("Form submitted successfully!");
     document.getElementById("successMsg").innerText = "Form Submitted Successfully!";
     form.reset();
+    strengthText.innerText = "";
   }
+  function togglePassword() {
+  const passwordField = document.getElementById("password");
+
+  if (passwordField.type === "password") {
+    passwordField.type = "text";
+  } else {
+    passwordField.type = "password";
+  }
+}
 });
