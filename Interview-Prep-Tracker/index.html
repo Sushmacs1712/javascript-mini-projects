@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interview Prep Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Interview Prep Tracker</h1>
+    <p class="subtitle">Track topics, progress, and confidence 🚀</p>
+
+    <div class="input-box">
+      <input type="text" id="topicInput" placeholder="Enter topic e.g. JavaScript, SQL" />
+      <select id="levelInput">
+        <option value="Beginner">Beginner</option>
+        <option value="Medium">Medium</option>
+        <option value="Strong">Strong</option>
+      </select>
+      <button onclick="addTopic()">Add</button>
+    </div>
+
+    <div class="stats">
+    <div class="card">
+        <h2 id="totalTopics">0</h2>
+        <p>Total</p>
+    </div>
+
+    <div class="card">
+        <h2 id="completedTopics">0</h2>
+        <p>Completed</p>
+    </div>
+
+    <div class="card">
+        <h2 id="pendingTopics">0</h2>
+        <p>Pending</p>
+    </div>
+</div>
+
+    <div class="progress-box">
+      <p id="progressText">Progress: 0%</p>
+      <div class="progress-bar">
+        <div id="progressFill"></div>
+      </div>
+    </div>
+
+    <div class="filters">
+    <button onclick="filterTopics('all')">All</button>
+    <button onclick="filterTopics('pending')">Pending</button>
+    <button onclick="filterTopics('completed')">Completed</button>
+</div>
+
+    <input type="text" id="searchInput" placeholder="Search topics..." onkeyup="displayTopics()" />
+
+    <ul id="topicList"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
