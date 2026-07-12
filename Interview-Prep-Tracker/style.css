@@ -155,3 +155,40 @@ li {
 .filters button{
     flex:1;
 }
+.theme-btn {
+  display: block;
+  margin: 0 auto 15px;
+  background: #0f172a;
+}
+
+body.dark {
+  background: linear-gradient(135deg, #020617, #111827);
+}
+
+body.dark .container {
+  background: #0f172a;
+  color: white;
+}
+
+body.dark h1,
+body.dark .topic-name {
+  color: #f8fafc;
+}
+
+body.dark .subtitle,
+body.dark .level,
+body.dark .card p {
+  color: #cbd5e1;
+}
+
+body.dark .card,
+body.dark li {
+  background: #1e293b;
+}
+
+body.dark input,
+body.dark select {
+  background: #020617;
+  color: white;
+  border: 1px solid #334155;
+}
