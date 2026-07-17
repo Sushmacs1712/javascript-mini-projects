@@ -57,6 +57,27 @@
       </div>
     </div>
 
+    <section class="question-card">
+  <div class="question-header">
+    <span>💡 Daily Interview Question</span>
+    <span id="questionCategory" class="question-category"></span>
+  </div>
+
+  <p id="dailyQuestion" class="daily-question"></p>
+
+  <div id="dailyAnswer" class="daily-answer hidden"></div>
+
+  <div class="question-buttons">
+    <button id="showAnswerBtn" onclick="toggleAnswer()">
+      Show Answer
+    </button>
+
+    <button onclick="showNextQuestion()">
+      Next Question
+    </button>
+  </div>
+</section>
+
     <div class="filters">
       <button onclick="filterTopics('all')">All</button>
       <button onclick="filterTopics('pending')">Pending</button>
