@@ -141,7 +141,8 @@ function displayTopics() {
     emptyMessage.className = "empty-message";
     emptyMessage.textContent = "No topics found";
     topicList.appendChild(emptyMessage);
-
+    
+    updateStatistics();
     updateProgress();
     return;
   }
@@ -332,6 +333,29 @@ function showNextQuestion() {
     (currentQuestionIndex + 1) % interviewQuestions.length;
 
   displayInterviewQuestion(currentQuestionIndex);
+}
+function updateStatistics(){
+
+    const total = topics.length;
+
+    const completed = topics.filter(topic => topic.completed).length;
+
+    const pending = total - completed;
+
+    const percentage =
+        total === 0
+        ? 0
+        : Math.round((completed/total)*100);
+
+    document.getElementById("totalTopics").textContent = total;
+
+    document.getElementById("completedTopics").textContent = completed;
+
+    document.getElementById("pendingTopics").textContent = pending;
+
+    document.getElementById("completionRate").textContent =
+        percentage + "%";
+
 }
 
 function loadDailyQuestion() {
