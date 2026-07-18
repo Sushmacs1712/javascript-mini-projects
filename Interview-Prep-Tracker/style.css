@@ -387,7 +387,20 @@ body.dark input::placeholder {
     color:#666;
     font-size:15px;
 }
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
 .stat-card:nth-child(1){border-top:4px solid #3b82f6;}
 .stat-card:nth-child(2){border-top:4px solid #22c55e;}
 .stat-card:nth-child(3){border-top:4px solid #f59e0b;}
 .stat-card:nth-child(4){border-top:4px solid #8b5cf6;}
+
+
+
+
+
+

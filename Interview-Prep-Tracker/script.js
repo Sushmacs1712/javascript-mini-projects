@@ -46,14 +46,11 @@ function toggleComplete(id) {
 }
 
 function deleteTopic(id) {
-  const confirmed = confirm("Are you sure you want to delete this topic?");
+  const confirmDelete = confirm("Are you sure you want to delete this topic?");
 
-  if (!confirmed) {
-    return;
-  }
+  if (!confirmDelete) return;
 
   topics = topics.filter(topic => topic.id !== id);
-
   saveTopics();
   displayTopics();
 }
