@@ -17,6 +17,23 @@ function addTopic() {
     return;
   }
 
+    if (
+  topics.some(
+    topic => topic.name.toLowerCase() === topicName.toLowerCase()
+  )
+) {
+  alert("Topic already exists.");
+  return;
+}
+
+if (
+  topics.some(
+    topic => topic.name.toLowerCase() === topicName.toLowerCase()
+  )
+) {
+  alert("Topic already exists.");
+  return;
+}
   const newTopic = {
     id: Date.now(),
     name: topicName,
