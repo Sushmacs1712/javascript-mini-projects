@@ -403,6 +403,33 @@ input:focus {
 button:hover {
   transform: translateY(-2px);
 }
+
+.search-section {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+#searchInput {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+#clearCompletedBtn {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@media (max-width: 500px) {
+  .search-section {
+    flex-direction: column;
+  }
+}
 .stat-card:nth-child(1){border-top:4px solid #3b82f6;}
 .stat-card:nth-child(2){border-top:4px solid #22c55e;}
 .stat-card:nth-child(3){border-top:4px solid #f59e0b;}

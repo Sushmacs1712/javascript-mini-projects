@@ -341,6 +341,27 @@ function toggleAnswer() {
     answerButton.textContent = "Hide Answer";
   }
 }
+const searchInput = document.getElementById("searchInput");
+
+searchInput.addEventListener("input", displayTopics);
+
+function clearCompletedTopics() {
+  const hasCompletedTopics = topics.some(topic => topic.completed);
+
+  if (!hasCompletedTopics) {
+    alert("No completed topics to clear.");
+    return;
+  }
+
+  const confirmed = confirm("Remove all completed topics?");
+
+  if (!confirmed) return;
+
+  topics = topics.filter(topic => !topic.completed);
+
+  localStorage.setItem("topics", JSON.stringify(topics));
+  displayTopics();
+}
 
 function showNextQuestion() {
   currentQuestionIndex =

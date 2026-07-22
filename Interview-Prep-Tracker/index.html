@@ -32,20 +32,25 @@
       <button onclick="addTopic()">Add</button>
     </div>
 
-    <div class="stats">
-      <div class="card">
-        <h2 id="totalTopics">0</h2>
-        <p>Total</p>
+    <div class="stats-container">
+      <div class="stat-card">
+        <h3 id="totalTopics">0</h3>
+        <p>Total Topics</p>
       </div>
 
-      <div class="card">
-        <h2 id="completedTopics">0</h2>
+      <div class="stat-card">
+        <h3 id="completedTopics">0</h3>
         <p>Completed</p>
       </div>
 
-      <div class="card">
-        <h2 id="pendingTopics">0</h2>
+      <div class="stat-card">
+        <h3 id="pendingTopics">0</h3>
         <p>Pending</p>
+      </div>
+
+      <div class="stat-card">
+        <h3 id="completionRate">0%</h3>
+        <p>Completion</p>
       </div>
     </div>
 
@@ -56,50 +61,27 @@
         <div id="progressFill"></div>
       </div>
     </div>
-    <div class="stats-container">
-
-  <div class="stat-card">
-      <h3 id="totalTopics">0</h3>
-      <p>Total Topics</p>
-  </div>
-
-  <div class="stat-card">
-      <h3 id="completedTopics">0</h3>
-      <p>Completed</p>
-  </div>
-
-  <div class="stat-card">
-      <h3 id="pendingTopics">0</h3>
-      <p>Pending</p>
-  </div>
-
-  <div class="stat-card">
-      <h3 id="completionRate">0%</h3>
-      <p>Completion</p>
-  </div>
-
-</div>
 
     <section class="question-card">
-  <div class="question-header">
-    <span>💡 Daily Interview Question</span>
-    <span id="questionCategory" class="question-category"></span>
-  </div>
+      <div class="question-header">
+        <span>💡 Daily Interview Question</span>
+        <span id="questionCategory" class="question-category"></span>
+      </div>
 
-  <p id="dailyQuestion" class="daily-question"></p>
+      <p id="dailyQuestion" class="daily-question"></p>
 
-  <div id="dailyAnswer" class="daily-answer hidden"></div>
+      <div id="dailyAnswer" class="daily-answer hidden"></div>
 
-  <div class="question-buttons">
-    <button id="showAnswerBtn" onclick="toggleAnswer()">
-      Show Answer
-    </button>
+      <div class="question-buttons">
+        <button id="showAnswerBtn" onclick="toggleAnswer()">
+          Show Answer
+        </button>
 
-    <button onclick="showNextQuestion()">
-      Next Question
-    </button>
-  </div>
-</section>
+        <button onclick="showNextQuestion()">
+          Next Question
+        </button>
+      </div>
+    </section>
 
     <div class="filters">
       <button onclick="filterTopics('all')">All</button>
@@ -107,12 +89,21 @@
       <button onclick="filterTopics('completed')">Completed</button>
     </div>
 
-    <input
-      type="text"
-      id="searchInput"
-      placeholder="🔍 Search topics..."
-      oninput="displayTopics()"
-    />
+    <div class="search-section">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="🔍 Search topics..."
+        oninput="displayTopics()"
+      />
+
+      <button
+        id="clearCompletedBtn"
+        onclick="clearCompletedTopics()"
+      >
+        Clear Completed
+      </button>
+    </div>
 
     <ul id="topicList"></ul>
   </div>
