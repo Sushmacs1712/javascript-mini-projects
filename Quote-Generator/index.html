@@ -59,6 +59,10 @@
 
   <div class="container">
     <h2>Quote Generator</h2>
+    <div class="favorites-section">
+  <h2>Favorite Quotes</h2>
+  <ul id="favoritesList"></ul>
+  </div>
 
     <select id="category">
       <option value="motivation">Motivation</option>
@@ -69,6 +73,7 @@
     <br>
      <button onclick="generateQuote()">New Quote</button>
      <button onclick="copyQuote()">Copy Quote</button>
+     <button onclick="addToFavorites()">❤️ Add to Favorites</button>
 
     <p id="quote">Click the button to generate a quote</p>
   </div>

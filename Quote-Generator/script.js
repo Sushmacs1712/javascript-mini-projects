@@ -23,17 +23,64 @@ const quotes = {
 
 };
 
-function generateQuote() {
+let favoriteQuotes =
+  JSON.parse(localStorage.getItem("favoriteQuotes")) || [];
 
-  const category =
-  document.getElementById("category").value;
+function addToFavorites() {
+  const quote = document.getElementById("quote").innerText;
 
-  const selectedQuotes =
-  quotes[category];
+  if (
+    quote === "" ||
+    quote === "Click the button to generate a quote"
+  ) {
+    alert("Generate a quote first!");
+    return;
+  }
 
-  const random =
-  Math.floor(Math.random() * selectedQuotes.length);
+  if (favoriteQuotes.includes(quote)) {
+    alert("Quote already added!");
+    return;
+  }
 
-  document.getElementById("quote").innerText =
-  selectedQuotes[random];
+  favoriteQuotes.push(quote);
+
+  localStorage.setItem(
+    "favoriteQuotes",
+    JSON.stringify(favoriteQuotes)
+  );
+
+  displayFavorites();
 }
+
+function displayFavorites() {
+  const list = document.getElementById("favoritesList");
+
+  list.innerHTML = "";
+
+  if (favoriteQuotes.length === 0) {
+    list.innerHTML = "<li>No favorite quotes yet.</li>";
+    return;
+  }
+
+  favoriteQuotes.forEach((quote, index) => {
+    list.innerHTML += `
+      <li>
+        ${quote}
+        <button onclick="removeFavorite(${index})">❌</button>
+      </li>
+    `;
+  });
+}
+
+function removeFavorite(index) {
+  favoriteQuotes.splice(index, 1);
+
+  localStorage.setItem(
+    "favoriteQuotes",
+    JSON.stringify(favoriteQuotes)
+  );
+
+  displayFavorites();
+}
+
+displayFavorites();

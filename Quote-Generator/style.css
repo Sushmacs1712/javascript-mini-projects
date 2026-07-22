@@ -44,3 +44,35 @@ button:hover {
   background: #5a67d8;
   transform: scale(1.05);
 }
+.favorites-section {
+  margin-top: 25px;
+}
+
+#favoritesList {
+  list-style: none;
+  padding: 0;
+}
+
+#favoritesList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+#favoritesList p {
+  margin: 0 0 5px;
+}
+
+#favoritesList button {
+  padding: 7px 10px;
+  cursor: pointer;
+}
+
+.empty-favorites {
+  justify-content: center !important;
+}
