@@ -1,6 +1,5 @@
 const quotes = {
-
-  motivation: [
+   motivation: [
     "Believe in yourself.",
     "Keep going.",
     "Small steps matter.",
@@ -9,9 +8,12 @@ const quotes = {
 
   coding: [
     "Code. Debug. Repeat.",
-    "Every expert was once a beginner.",
-    "Practice improves logic.",
-    "Errors help you learn."
+    "Practice makes perfect",
+    "Every bug teaches something",
+    "I love Coding",
+    "Coffee + Code = Developer",
+    "Programming is 10% coding and 90% fixing bugs.",
+    "Life is short. Use semicolons wisely."
   ],
 
   success: [
@@ -19,9 +21,41 @@ const quotes = {
     "Discipline creates results.",
     "Dream big and work hard.",
     "Stay focused on your goals."
-  ]
+  ],
+
+  life: [
+  "Life is about learning every day.",
+  "Every day is a fresh start.",
+  "Be kind. It costs nothing.",
+  "Happiness grows when shared."
+],
+
+funny: [
+  "Coffee first. Everything else later.",
+  "Debugging is like being a detective.",
+  "Smile, it confuses people.",
+  "Keep calm and refresh the page."
+]
 
 };
+
+function generateQuote() {
+  const category = document.getElementById("category").value;
+  const selectedQuotes = quotes[category];
+
+  const randomIndex = Math.floor(Math.random() * selectedQuotes.length);
+
+  document.getElementById("quote").innerText =
+    selectedQuotes[randomIndex];
+}
+
+function copyQuote() {
+  const quote = document.getElementById("quote").innerText;
+
+  navigator.clipboard.writeText(quote);
+
+  alert("Quote copied!");
+}
 
 let favoriteQuotes =
   JSON.parse(localStorage.getItem("favoriteQuotes")) || [];
@@ -82,5 +116,3 @@ function removeFavorite(index) {
 
   displayFavorites();
 }
-
-displayFavorites();
