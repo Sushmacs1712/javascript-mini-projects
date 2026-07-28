@@ -61,6 +61,11 @@ addBtn.addEventListener("click", () => {
     saveHabits();
     displayHabits();
 });
+habitInput.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+        addBtn.click();
+    }
+});
 
 
 function completeHabit(index) {
