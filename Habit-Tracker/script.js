@@ -1,7 +1,7 @@
 const habitInput = document.getElementById("habitInput");
 const addBtn = document.getElementById("addBtn");
 const habitList = document.getElementById("habitList");
-
+const categoryInput = document.getElementById("categoryInput");
 const total = document.getElementById("total");
 const completed = document.getElementById("completed");
 const remaining = document.getElementById("remaining");
@@ -22,7 +22,10 @@ function displayHabits() {
         li.className = habit.done ? "habit completed" : "habit";
 
         li.innerHTML = `
-            <span>${habit.name}</span>
+           <span>
+              ${habit.name}
+              <small>${habit.category}</small>
+          </span>
 
             <div class="actions">
                 <button class="complete-btn" onclick="completeHabit(${index})">
@@ -52,9 +55,10 @@ addBtn.addEventListener("click", () => {
     }
 
     habits.push({
-        name: habitName,
-        done: false
-    });
+    name: habitName,
+    category: categoryInput.value,
+    done: false
+});
 
     habitInput.value = "";
 
