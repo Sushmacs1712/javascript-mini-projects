@@ -123,7 +123,43 @@ ul {
 }
 .habit small {
     display: block;
-    color: gray;
     font-size: 12px;
     margin-top: 5px;
+}
+
+.category {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    margin-top: 5px;
+}
+
+.health {
+    background-color: #4CAF50;
+}
+
+.learning {
+    background-color: #2196F3;
+}
+
+.career {
+    background-color: #FF9800;
+}
+
+.personal {
+    background-color: #9C27B0;
+}
+.category {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 90px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
 }

@@ -9,6 +9,10 @@ const progressBar = document.getElementById("progressBar");
 
 let habits = JSON.parse(localStorage.getItem("habits")) || [];
 
+habits = habits.map(habit => ({
+    ...habit,
+    category: habit.category || "Personal"
+}));
 function saveHabits() {
     localStorage.setItem("habits", JSON.stringify(habits));
 }
@@ -24,7 +28,9 @@ function displayHabits() {
         li.innerHTML = `
            <span>
               ${habit.name}
-              <small>${habit.category}</small>
+              <small class="category ${(habit.category || "personal").toLowerCase()}">
+              ${habit.category || "Personal"}
+              </small>
           </span>
 
             <div class="actions">
