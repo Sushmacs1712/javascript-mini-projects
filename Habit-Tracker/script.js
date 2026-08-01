@@ -85,7 +85,6 @@ function completeHabit(index) {
     saveHabits();
     displayHabits();
 }
-
 function deleteHabit(index) {
 
     const confirmDelete = confirm("Are you sure you want to delete this habit?");
