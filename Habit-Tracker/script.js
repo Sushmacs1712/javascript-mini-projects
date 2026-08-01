@@ -86,8 +86,11 @@ function completeHabit(index) {
     displayHabits();
 }
 
-
 function deleteHabit(index) {
+
+    const confirmDelete = confirm("Are you sure you want to delete this habit?");
+
+    if (!confirmDelete) return;
 
     habits.splice(index, 1);
 
