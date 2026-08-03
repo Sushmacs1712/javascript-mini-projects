@@ -5,7 +5,7 @@ const categoryInput = document.getElementById("categoryInput");
 const total = document.getElementById("total");
 const completed = document.getElementById("completed");
 const remaining = document.getElementById("remaining");
-const progressBar = document.getElementById("progressBar");
+const progressBar = document.getElementById("progress");
 
 let habits = JSON.parse(localStorage.getItem("habits")) || [];
 
@@ -30,8 +30,12 @@ function displayHabits() {
               ${habit.name}
               <small class="category ${(habit.category || "personal").toLowerCase()}">
               ${habit.category || "Personal"}
-              </small>
-          </span>
+            </small>
+
+              <small class="status">
+              ${habit.done ? "Completed ✅" : "Pending ⏳"}
+            </small>
+            </span>
 
             <div class="actions">
                 <button class="complete-btn" onclick="completeHabit(${index})">
@@ -108,18 +112,16 @@ function updateStats() {
 
     const remainingCount = totalCount - completedCount;
 
-
     total.textContent = totalCount;
     completed.textContent = completedCount;
     remaining.textContent = remainingCount;
 
-
     const progress = totalCount === 0 
         ? 0 
-        : (completedCount / totalCount) * 100;
-
+        : Math.round((completedCount / totalCount) * 100);
 
     progressBar.style.width = progress + "%";
+    progressText.textContent = `${progress}% Completed`;
 }
 
 
