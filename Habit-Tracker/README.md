@@ -41,7 +41,11 @@ Habit-Tracker/
 - Habit Streaks
 - Due Dates
 - Weekly Analytics
-
+- Add user authentication
+- Track weekly and monthly progress
+- Enable dark mode
+- Add reminder notifications
+- Store data using a backend database
 ## 👩‍💻 Author
 
 **Sushma C**
