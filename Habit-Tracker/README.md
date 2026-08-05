@@ -2,50 +2,31 @@
 
 A simple and responsive Habit Tracker built with HTML, CSS, and JavaScript to help users build daily habits and track their progress.
 
-## 🚀 Features
+# Habit Tracker
 
-- Add new habits
+A simple web application that helps users track their daily habits, monitor progress, and build consistent routines.
+
+## Features
+
+- Add and manage daily habits
 - Mark habits as completed
-- Delete habits
-- Progress bar
-- Habit statistics
-- Keyboard support (Enter key)
-- Local Storage support
-- Color-coded categories
-  - 💪 Health
-  - 📚 Learning
-  - 💼 Career
-  - 🧘 Personal
+- Track daily progress
+- Simple and user-friendly interface
+- Responsive design
 
-## 🛠️ Tech Stack
+## Technologies Used
 
-- HTML5
-- CSS3
-- JavaScript (ES6)
-- Local Storage API
+- HTML
+- CSS
+- JavaScript
 
-## 📁 Project Structure
+## How to Run
 
-```
-Habit-Tracker/
-├── index.html
-├── style.css
-├── script.js
-└── README.md
-```
+1. Clone the repository
+2. Open `index.html` in your browser
 
-## 🌟 Future Enhancements
+## Future Improvements
 
-- Dark Mode
-- Search Habits
-- Habit Streaks
-- Due Dates
-- Weekly Analytics
-- Add user authentication
-- Track weekly and monthly progress
-- Enable dark mode
-- Add reminder notifications
-- Store data using a backend database
-## 👩‍💻 Author
-
-**Sushma C**
+- Add local storage support
+- Add progress charts
+- Add habit streak tracking
