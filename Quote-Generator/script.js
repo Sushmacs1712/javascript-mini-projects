@@ -95,7 +95,12 @@ function addToFavorites() {
   );
 
   displayFavorites();
+
+  alert("❤️ Quote added to Favorites!");
 }
+
+  displayFavorites();
+
 
 function displayFavorites() {
   const list = document.getElementById("favoritesList");
