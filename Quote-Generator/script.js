@@ -39,15 +39,21 @@ funny: [
 
 };
 
-
-
 function copyQuote() {
   const quote = document.getElementById("quote").innerText;
 
-  navigator.clipboard.writeText(quote);
+  if (
+    quote === "" ||
+    quote === "Click the button to generate a quote"
+  ) {
+    alert("Generate a quote first!");
+    return;
+  }
 
+  navigator.clipboard.writeText(quote);
   alert("Quote copied!");
-}function generateQuote() {
+}
+function generateQuote() {
   const category = document.getElementById("category").value;
   const selectedQuotes = quotes[category];
   const randomIndex = Math.floor(Math.random() * selectedQuotes.length);
@@ -121,3 +127,4 @@ function removeFavorite(index) {
 
   displayFavorites();
 }
+displayFavorites();
