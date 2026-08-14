@@ -1,55 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simple Calculator</title>
 
-  <style>
-    body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  margin-top: 50px;
-  background: linear-gradient(to right, #dbeafe, #bfdbfe);
-}
-
-h2 {
-  color: #333;
-}
-
-input {
-  padding: 10px;
-  margin: 10px;
-  width: 220px;
-  border-radius: 5px;
-  border: 1px solid #999;
-}
-
-button {
-  padding: 10px 15px;
-  margin: 5px;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  background-color: #2563eb;
-  color: white;
-  font-size: 15px;
-}
-
-button:hover {
-  background-color: #1d4ed8;
-}
-
-#resultBox {
-  margin-top: 20px;
-  font-size: 22px;
-  font-weight: bold;
-  border-radius: 10px;
-  background-color: white;
-  display: inline-block;
-  padding: 15px 30px;
-  min-width: 150px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -71,37 +27,7 @@ button:hover {
     Result: <span id="result">0</span>
   </div>
 
-  <script>
-    function calculate(operator) {
-
-      let a = Number(document.getElementById("num1").value);
-      let b = Number(document.getElementById("num2").value);
-
-      let result;
-
-      if (operator === '+') {
-        result = a + b;
-      }
-
-      else if (operator === '-') {
-        result = a - b;
-      }
-
-      else if (operator === '*') {
-        result = a * b;
-      }
-
-      else if (operator === '/') {
-        if (b === 0) {
-          result = "Cannot divide by 0";
-        } else {
-          result = a / b;
-        }
-      }
-
-      document.getElementById("result").innerText = result;
-    }
-  </script>
+  <script src="script.js"></script>
 
 </body>
 </html>
